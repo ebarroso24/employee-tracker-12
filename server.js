@@ -16,7 +16,7 @@ const connection = mysql.createConnection(
   connection.connect((err) => {
     if (err) throw err;
     console.log("Connected to the database!");
-    // start the application
+     
     start();
 });
 
@@ -35,10 +35,7 @@ function start() {
                 "Add an employee",
                 "Add a Manager",
                 "Update an employee role",
-                "View Employees by Manager",
-                "View Employees by Department",
-                "Delete Departments | Roles | Employees",
-                "View the total utilized budget of a department",
+                
                 "Exit",
             ],
         })
@@ -272,7 +269,7 @@ function addEmployee() {
         );
     });
 }
-// Function to add a Manager
+ 
 function addManager() {
     const queryDepartments = "SELECT * FROM departments";
     const queryEmployees = "SELECT * FROM employee";
@@ -335,7 +332,7 @@ function addManager() {
                             console.log(
                                 `Added manager ${manager.first_name} ${manager.last_name} to employee ${employee.first_name} ${employee.last_name} in department ${department.department_name}!`
                             );
-                            // restart the application
+                             
                             start();
                         }
                     );
@@ -344,7 +341,7 @@ function addManager() {
     });
 }
 
-// function to update an employee role
+ 
 function updateEmployeeRole() {
     const queryEmployees =
         "SELECT employee.id, employee.first_name, employee.last_name, roles.title FROM employee LEFT JOIN roles ON employee.role_id = roles.id";
